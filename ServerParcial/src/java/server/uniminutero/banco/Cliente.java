@@ -36,13 +36,16 @@ public class Cliente extends Persona {
         int saldo3 = Integer.parseInt(resultConsult[2]);
         int sumatoriaSueldo= saldo1 + saldo2 + saldo3;
         
-        if(cantidad%30<sumatoriaSueldo){//tengo mayor saldo que la cantidad e mi prestamos
+        
+       return aprobar_credito(cantidad, sumatoriaSueldo);           
+    }
+     private boolean aprobar_credito(int cantidad, int sumatoriaSueldo){
+           if(cantidad%30<sumatoriaSueldo){//tengo mayor saldo que la cantidad e mi prestamos
             //si, se aprueba el credito
             return true;
         }else{
             return false;
         }
 
-       
-    }
+       }
 }
