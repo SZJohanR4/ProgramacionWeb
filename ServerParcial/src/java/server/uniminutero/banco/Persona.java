@@ -10,5 +10,6 @@ package server.uniminutero.banco;
  * @author johan
  */
 public class Persona {
+    private String id;
     
 }
