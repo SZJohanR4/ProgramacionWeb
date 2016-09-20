@@ -9,6 +9,6 @@ package server.uniminutero.banco;
  *
  * @author johan
  */
-public class Cliente {
+public class Cliente extends Persona{
     
 }

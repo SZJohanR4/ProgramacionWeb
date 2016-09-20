@@ -44,15 +44,17 @@ public class Conexion {
         }
     }
 
-    public void insert(String user, String password) throws Exception {
-        String encripcion = md5(password);
+    public boolean insert(String Querry) throws Exception {
         try {
-            String querry = "insert into usuarios (`usuario`, `password`) " + " VALUES (" + "'" + user + "'" + "," + "'" + encripcion + "'" + ");";
+            String querry = Querry;
+            System.out.println(querry+" querry en insert");
             java.sql.Statement st = (java.sql.Statement) conexion.createStatement();
             st.executeUpdate(querry);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error, no se almacenaron los datos");
+            return false;
         }
+        return true;
     }
 
     public void select() throws SQLException {
