@@ -17,7 +17,8 @@ import javax.swing.JOptionPane;
  * @author johan
  */
 public class Conexion {
-     private static java.sql.Connection conexion = null;
+
+    private static java.sql.Connection conexion = null;
 
     public static java.sql.Connection conexionDB() throws ClassNotFoundException, SQLException {
 
@@ -47,7 +48,7 @@ public class Conexion {
     public boolean insert(String Querry) throws Exception {
         try {
             String querry = Querry;
-            System.out.println(querry+" querry en insert");
+            System.out.println(querry + " querry en insert");
             java.sql.Statement st = (java.sql.Statement) conexion.createStatement();
             st.executeUpdate(querry);
         } catch (SQLException ex) {
@@ -57,20 +58,53 @@ public class Conexion {
         return true;
     }
 
-    public void select() throws SQLException {
+    public String select(String query) throws SQLException {
+        String result="";
         try {
-            String querry = "select * from usuarios";
+
             java.sql.Statement st = (java.sql.Statement) conexion.createStatement();
             java.sql.ResultSet resultSet;
-            resultSet = st.executeQuery(querry);
+            resultSet = st.executeQuery(query);
+            if (resultSet.next()) {
+                while (resultSet.next()) {
+                    result = resultSet.getString("Usuario")+" "+resultSet.getString("nivel");
+                    
+                }
+            } else {
 
-            while (resultSet.next()) {
-                System.out.println("Usuario: " + resultSet.getString("usuario")
-                        + " Password: " + resultSet.getString("password"));
+                result = null;
+
             }
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error en la adquisición de datos");
         }
+        return result;
+    }
+    
+    
+     public String informacion(String query) throws SQLException {
+        String result="";
+        try {
+
+            java.sql.Statement st = (java.sql.Statement) conexion.createStatement();
+            java.sql.ResultSet resultSet;
+            resultSet = st.executeQuery(query);
+            if (resultSet.next()) {
+                while (resultSet.next()) {
+                    result = resultSet.getString("estado_cuenta")+" "+resultSet.getString("numero_cuenta")+" "+resultSet.getString("sucursal")+" "+resultSet.getString("saldo");
+                    
+                }
+            } else {
+
+                result = null;
+
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error en la adquisición de datos");
+        }
+        return result;
     }
 
     private static String md5(String clear) throws Exception {
