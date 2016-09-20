@@ -31,9 +31,9 @@ public class Persona {
         String niveles = result[1];
         if (niveles != null) {
             if (niveles == "admin") {
-                resultado = nombre+"ad" ;
+                resultado = nombre+" ad" ;
             } else {
-                resultado = nombre+"cl";
+                resultado = nombre+" cl";
 
             }
         }else{
@@ -50,7 +50,6 @@ public class Persona {
     public String[] consultar_informacion(String id_cuenta) throws ClassNotFoundException, SQLException, Exception {
         Conexion conectar = new Conexion();
         Conexion.conexionDB();
-        String resultado = "";
         String querry = "SELECT * from cuenta where numero_cuenta ='" + id_cuenta + "')";
         String result[] = conectar.informacion(querry).split(" ");
         conectar.closeConnection();
