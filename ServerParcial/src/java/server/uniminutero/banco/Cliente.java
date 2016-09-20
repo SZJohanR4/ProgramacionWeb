@@ -25,7 +25,7 @@ public class Cliente extends Persona {
         return false;
     }
 
-    public boolean pedir_credito(int cantidad, int id) throws ClassNotFoundException, SQLException {
+    public boolean pedir_credito(int cantidad, int id, String tipo_credito) throws ClassNotFoundException, SQLException, Exception {
 
         Conexion conectar = new Conexion();
         Conexion.conexionDB();
@@ -34,18 +34,24 @@ public class Cliente extends Persona {
         int saldo1 = Integer.parseInt(resultConsult[0]);
         int saldo2 = Integer.parseInt(resultConsult[1]);
         int saldo3 = Integer.parseInt(resultConsult[2]);
-        int sumatoriaSueldo= saldo1 + saldo2 + saldo3;
-        
-        
-       return aprobar_credito(cantidad, sumatoriaSueldo);           
+        int sumatoriaSueldo = saldo1 + saldo2 + saldo3;
+
+        return aprobar_credito(cantidad, sumatoriaSueldo, id, tipo_credito);
     }
-     private boolean aprobar_credito(int cantidad, int sumatoriaSueldo){
-           if(cantidad%30<sumatoriaSueldo){//tengo mayor saldo que la cantidad e mi prestamos
-            //si, se aprueba el credito
-            return true;
-        }else{
+
+    private boolean aprobar_credito(int cantidad, int sumatoriaSueldo, int id, String tipo_credito) throws ClassNotFoundException, SQLException, Exception {
+        if (cantidad % 30 < sumatoriaSueldo) {//tengo mayor saldo que la cantidad e mi prestamos
+            Conexion conectar = new Conexion();
+            Conexion.conexionDB();
+            String querry = "INSERT INTO `credito_bancario`(`id_credito`, `tipo_credito`, `valor`, `estado`, `fechar_creacion`, `id_cliente_FK`) VALUES ('','" + tipo_credito + "','" + cantidad + "','aprobado','CURRENT_TIMESTAMP','" + id + "')";
+            if (conectar.sql(querry)) {
+                System.out.println("entre al crear_cuenta administrador");
+                return true;
+            }
+            conectar.closeConnection();
+        } else {
             return false;
         }
-
-       }
+        return false;
+    }
 }
