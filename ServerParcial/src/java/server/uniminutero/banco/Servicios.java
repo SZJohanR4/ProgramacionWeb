@@ -5,7 +5,9 @@
  */
 package server.uniminutero.banco;
 
+import com.sun.xml.fastinfoset.util.StringArray;
 import java.sql.SQLException;
+import java.util.Vector;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -17,13 +19,6 @@ import javax.jws.WebParam;
 @WebService(serviceName = "Servicios")
 public class Servicios {
 
-    /**
-     * This is a sample web service operation
-     */
-    @WebMethod(operationName = "hello")
-    public String hello(@WebParam(name = "name") String txt) {
-        return "Hello " + txt + " !";
-    }
 
     /**
      * Web service operation
@@ -63,5 +58,72 @@ public class Servicios {
         }
         return false;
     }
+
+    /**
+     *---------------------CLIENTE-------------------------
+     */
+    @WebMethod(operationName = "transaccion")
+    public Boolean transaccion(@WebParam(name = "cantidad") int cantidad, @WebParam(name = "id") int id) throws SQLException, Exception {
+       Cliente cliente=new Cliente();
+      if( cliente.transaccion(cantidad, id)){
+          System.out.println("entre al transaccion de servicion.java");
+            return true;
+      }
+        return false;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "pedir_cresito")
+    public Boolean pedir_cresito(@WebParam(name = "cantidad") int cantidad, @WebParam(name = "id") int id, @WebParam(name = "tipo_credito") String tipo_credito) throws SQLException, Exception {
+         Cliente cliente=new Cliente();
+         if(cliente.pedir_credito(cantidad, id, tipo_credito)){
+             return true;
+         }
+        return false;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "cancelar_credito")
+    public Boolean cancelar_credito(@WebParam(name = "id") int id) throws SQLException, Exception {
+        Cliente cliente=new Cliente();
+        if(cliente.cancelar_credito(id)){
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * -----------------------------------------PErsona
+     */
+    @WebMethod(operationName = "consultar_informacion")
+    public String[] consultar_informacion(@WebParam(name = "id_cuenta") String id_cuenta) throws SQLException, Exception {
+       Persona persona=new Persona();
+        String []result=persona.consultar_informacion(id_cuenta);
+        return result;
+    }
+
+    /**
+     * Web service operation
+     */
+    @WebMethod(operationName = "login")
+    public String login(@WebParam(name = "cedula") String cedula, @WebParam(name = "password") String password, @WebParam(name = "nivel") String nivel) throws SQLException, Exception {
+       Persona persona=new Persona();
+        String result=persona.login(cedula, password, nivel);
+        return result;
+    }
+    
+
+
+
+
+    
+    
+    
+
+
 
 }

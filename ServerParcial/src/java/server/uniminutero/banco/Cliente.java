@@ -13,6 +13,13 @@ import java.sql.SQLException;
  */
 public class Cliente extends Persona {
 
+    @Override
+    public String[] consultar_informacion(String id_cuenta) throws ClassNotFoundException, SQLException, Exception {
+        return super.consultar_informacion(id_cuenta); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    
+
     public boolean transaccion(int cantidad, int id) throws ClassNotFoundException, SQLException, Exception {
         Conexion conectar = new Conexion();
         Conexion.conexionDB();
@@ -54,4 +61,18 @@ public class Cliente extends Persona {
         }
         return false;
     }
+    
+    public boolean cancelar_credito(int id) throws ClassNotFoundException, SQLException, Exception{
+        Conexion conectar = new Conexion();
+            Conexion.conexionDB();
+            String querry="UPDATE `credito_bancario` SET `estado`='desaprobado',`fechar_creacion`='CURRENT_TIMESTAMP' WHERE `id_cliente_FK`="+id;
+            if (conectar.sql(querry)) {
+                System.out.println("entre al cancelar credito administrador");
+                return true;
+            }
+            return false;
+            
+    }
+    
+    
 }
