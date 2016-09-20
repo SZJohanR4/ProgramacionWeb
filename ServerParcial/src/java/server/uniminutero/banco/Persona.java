@@ -20,6 +20,8 @@ public class Persona {
     private String direccion;
     private String telefono;
     private String email;
+    
+    
 
     public String login(String cedula, String password, String nivel) throws ClassNotFoundException, SQLException, Exception {
         Conexion conectar = new Conexion();

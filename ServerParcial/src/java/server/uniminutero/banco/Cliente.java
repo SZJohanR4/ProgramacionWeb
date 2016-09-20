@@ -11,4 +11,5 @@ package server.uniminutero.banco;
  */
 public class Cliente extends Persona{
     
+    
 }
