@@ -67,7 +67,7 @@ public class Conexion {
             resultSet = st.executeQuery(query);
             if (resultSet.next()) {
                 while (resultSet.next()) {
-                    result = resultSet.getString("Usuario")+" "+resultSet.getString("nivel");
+                    result = resultSet.getString("saldo")+" ";
                     
                 }
             } else {

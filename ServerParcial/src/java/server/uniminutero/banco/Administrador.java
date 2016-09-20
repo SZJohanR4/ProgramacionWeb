@@ -14,18 +14,12 @@ import java.sql.SQLException;
 public class Administrador extends Persona{
 
     
-    
     @Override
     public String[] consultar_informacion(String id_cuenta) throws ClassNotFoundException, SQLException, Exception {
         return super.consultar_informacion(id_cuenta); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
-    
-    
-    
-    
-    
+
     public boolean crear_cuenta(String estado_cuenta, String sucursal, int numero_cuenta, int saldo) throws ClassNotFoundException, SQLException, Exception {
         Conexion conectar = new Conexion();
         Conexion.conexionDB();
