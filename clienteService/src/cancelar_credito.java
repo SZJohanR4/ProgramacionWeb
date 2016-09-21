@@ -68,7 +68,7 @@ public class cancelar_credito extends javax.swing.JFrame {
         
         //aqui creo que es solo llamar al metodo cancelarCredito ya quedaria funcionando
         
-        
+        //commit por johan
         
     }//GEN-LAST:event_id_cancelar_creidt_clliente_textFieldActionPerformed
 
