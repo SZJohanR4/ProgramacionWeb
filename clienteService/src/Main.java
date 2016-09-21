@@ -6,7 +6,7 @@
 
 /**
  *
- * @author Sebastian Urrea
+ * @author johan
  */
 public class Main {
 

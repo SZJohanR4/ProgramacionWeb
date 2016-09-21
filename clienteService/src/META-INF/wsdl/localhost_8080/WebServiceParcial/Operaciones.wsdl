@@ -4,23 +4,17 @@
 <xsd:import namespace="http://mi_parcial/" schemaLocation="http://localhost:8080/WebServiceParcial/Operaciones?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="hello">
-<part name="parameters" element="tns:hello"/>
-</message>
-<message name="helloResponse">
-<part name="parameters" element="tns:helloResponse"/>
-</message>
 <message name="login">
 <part name="parameters" element="tns:login"/>
 </message>
 <message name="loginResponse">
 <part name="parameters" element="tns:loginResponse"/>
 </message>
-<message name="consultar_informacion">
-<part name="parameters" element="tns:consultar_informacion"/>
+<message name="hello">
+<part name="parameters" element="tns:hello"/>
 </message>
-<message name="consultar_informacionResponse">
-<part name="parameters" element="tns:consultar_informacionResponse"/>
+<message name="helloResponse">
+<part name="parameters" element="tns:helloResponse"/>
 </message>
 <message name="crear_cuenta">
 <part name="parameters" element="tns:crear_cuenta"/>
@@ -28,17 +22,11 @@
 <message name="crear_cuentaResponse">
 <part name="parameters" element="tns:crear_cuentaResponse"/>
 </message>
-<message name="cancelar_credito">
-<part name="parameters" element="tns:cancelar_credito"/>
+<message name="eliminar_cliente">
+<part name="parameters" element="tns:eliminar_cliente"/>
 </message>
-<message name="cancelar_creditoResponse">
-<part name="parameters" element="tns:cancelar_creditoResponse"/>
-</message>
-<message name="transaccion">
-<part name="parameters" element="tns:transaccion"/>
-</message>
-<message name="transaccionResponse">
-<part name="parameters" element="tns:transaccionResponse"/>
+<message name="eliminar_clienteResponse">
+<part name="parameters" element="tns:eliminar_clienteResponse"/>
 </message>
 <message name="crear_cliente">
 <part name="parameters" element="tns:crear_cliente"/>
@@ -46,11 +34,23 @@
 <message name="crear_clienteResponse">
 <part name="parameters" element="tns:crear_clienteResponse"/>
 </message>
-<message name="eliminar_cliente">
-<part name="parameters" element="tns:eliminar_cliente"/>
+<message name="transaccion">
+<part name="parameters" element="tns:transaccion"/>
 </message>
-<message name="eliminar_clienteResponse">
-<part name="parameters" element="tns:eliminar_clienteResponse"/>
+<message name="transaccionResponse">
+<part name="parameters" element="tns:transaccionResponse"/>
+</message>
+<message name="cancelar_credito">
+<part name="parameters" element="tns:cancelar_credito"/>
+</message>
+<message name="cancelar_creditoResponse">
+<part name="parameters" element="tns:cancelar_creditoResponse"/>
+</message>
+<message name="consultar_informacion">
+<part name="parameters" element="tns:consultar_informacion"/>
+</message>
+<message name="consultar_informacionResponse">
+<part name="parameters" element="tns:consultar_informacionResponse"/>
 </message>
 <message name="pedir_credito">
 <part name="parameters" element="tns:pedir_credito"/>
@@ -59,37 +59,37 @@
 <part name="parameters" element="tns:pedir_creditoResponse"/>
 </message>
 <portType name="Operaciones">
-<operation name="hello">
-<input wsam:Action="http://mi_parcial/Operaciones/helloRequest" message="tns:hello"/>
-<output wsam:Action="http://mi_parcial/Operaciones/helloResponse" message="tns:helloResponse"/>
-</operation>
 <operation name="login">
 <input wsam:Action="http://mi_parcial/Operaciones/loginRequest" message="tns:login"/>
 <output wsam:Action="http://mi_parcial/Operaciones/loginResponse" message="tns:loginResponse"/>
 </operation>
-<operation name="consultar_informacion">
-<input wsam:Action="http://mi_parcial/Operaciones/consultar_informacionRequest" message="tns:consultar_informacion"/>
-<output wsam:Action="http://mi_parcial/Operaciones/consultar_informacionResponse" message="tns:consultar_informacionResponse"/>
+<operation name="hello">
+<input wsam:Action="http://mi_parcial/Operaciones/helloRequest" message="tns:hello"/>
+<output wsam:Action="http://mi_parcial/Operaciones/helloResponse" message="tns:helloResponse"/>
 </operation>
 <operation name="crear_cuenta">
 <input wsam:Action="http://mi_parcial/Operaciones/crear_cuentaRequest" message="tns:crear_cuenta"/>
 <output wsam:Action="http://mi_parcial/Operaciones/crear_cuentaResponse" message="tns:crear_cuentaResponse"/>
 </operation>
-<operation name="cancelar_credito">
-<input wsam:Action="http://mi_parcial/Operaciones/cancelar_creditoRequest" message="tns:cancelar_credito"/>
-<output wsam:Action="http://mi_parcial/Operaciones/cancelar_creditoResponse" message="tns:cancelar_creditoResponse"/>
-</operation>
-<operation name="transaccion">
-<input wsam:Action="http://mi_parcial/Operaciones/transaccionRequest" message="tns:transaccion"/>
-<output wsam:Action="http://mi_parcial/Operaciones/transaccionResponse" message="tns:transaccionResponse"/>
+<operation name="eliminar_cliente">
+<input wsam:Action="http://mi_parcial/Operaciones/eliminar_clienteRequest" message="tns:eliminar_cliente"/>
+<output wsam:Action="http://mi_parcial/Operaciones/eliminar_clienteResponse" message="tns:eliminar_clienteResponse"/>
 </operation>
 <operation name="crear_cliente">
 <input wsam:Action="http://mi_parcial/Operaciones/crear_clienteRequest" message="tns:crear_cliente"/>
 <output wsam:Action="http://mi_parcial/Operaciones/crear_clienteResponse" message="tns:crear_clienteResponse"/>
 </operation>
-<operation name="eliminar_cliente">
-<input wsam:Action="http://mi_parcial/Operaciones/eliminar_clienteRequest" message="tns:eliminar_cliente"/>
-<output wsam:Action="http://mi_parcial/Operaciones/eliminar_clienteResponse" message="tns:eliminar_clienteResponse"/>
+<operation name="transaccion">
+<input wsam:Action="http://mi_parcial/Operaciones/transaccionRequest" message="tns:transaccion"/>
+<output wsam:Action="http://mi_parcial/Operaciones/transaccionResponse" message="tns:transaccionResponse"/>
+</operation>
+<operation name="cancelar_credito">
+<input wsam:Action="http://mi_parcial/Operaciones/cancelar_creditoRequest" message="tns:cancelar_credito"/>
+<output wsam:Action="http://mi_parcial/Operaciones/cancelar_creditoResponse" message="tns:cancelar_creditoResponse"/>
+</operation>
+<operation name="consultar_informacion">
+<input wsam:Action="http://mi_parcial/Operaciones/consultar_informacionRequest" message="tns:consultar_informacion"/>
+<output wsam:Action="http://mi_parcial/Operaciones/consultar_informacionResponse" message="tns:consultar_informacionResponse"/>
 </operation>
 <operation name="pedir_credito">
 <input wsam:Action="http://mi_parcial/Operaciones/pedir_creditoRequest" message="tns:pedir_credito"/>
@@ -98,15 +98,6 @@
 </portType>
 <binding name="OperacionesPortBinding" type="tns:Operaciones">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="hello">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="login">
 <soap:operation soapAction=""/>
 <input>
@@ -116,7 +107,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="consultar_informacion">
+<operation name="hello">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -134,16 +125,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="cancelar_credito">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="transaccion">
+<operation name="eliminar_cliente">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -161,7 +143,25 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="eliminar_cliente">
+<operation name="transaccion">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="cancelar_credito">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="consultar_informacion">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
