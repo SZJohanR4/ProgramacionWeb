@@ -1,0 +1,162 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://mi_parcial/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://mi_parcial/">
+
+<xs:element name="cancelar_credito" type="tns:cancelar_credito"/>
+
+<xs:element name="cancelar_creditoResponse" type="tns:cancelar_creditoResponse"/>
+
+<xs:element name="consultar_informacion" type="tns:consultar_informacion"/>
+
+<xs:element name="consultar_informacionResponse" type="tns:consultar_informacionResponse"/>
+
+<xs:element name="crear_cliente" type="tns:crear_cliente"/>
+
+<xs:element name="crear_clienteResponse" type="tns:crear_clienteResponse"/>
+
+<xs:element name="crear_cuenta" type="tns:crear_cuenta"/>
+
+<xs:element name="crear_cuentaResponse" type="tns:crear_cuentaResponse"/>
+
+<xs:element name="eliminar_cliente" type="tns:eliminar_cliente"/>
+
+<xs:element name="eliminar_clienteResponse" type="tns:eliminar_clienteResponse"/>
+
+<xs:element name="hello" type="tns:hello"/>
+
+<xs:element name="helloResponse" type="tns:helloResponse"/>
+
+<xs:element name="login" type="tns:login"/>
+
+<xs:element name="loginResponse" type="tns:loginResponse"/>
+
+<xs:element name="pedir_credito" type="tns:pedir_credito"/>
+
+<xs:element name="pedir_creditoResponse" type="tns:pedir_creditoResponse"/>
+
+<xs:element name="transaccion" type="tns:transaccion"/>
+
+<xs:element name="transaccionResponse" type="tns:transaccionResponse"/>
+
+<xs:complexType name="cancelar_credito">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="cancelar_creditoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminar_cliente">
+<xs:sequence>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="eliminar_clienteResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="transaccion">
+<xs:sequence>
+<xs:element name="cantidad" type="xs:int"/>
+<xs:element name="id" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="transaccionResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crear_cuenta">
+<xs:sequence>
+<xs:element name="estado_cuenta" type="xs:string" minOccurs="0"/>
+<xs:element name="numero_cuenta" type="xs:int"/>
+<xs:element name="sucursal" type="xs:string" minOccurs="0"/>
+<xs:element name="saldo" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crear_cuentaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crear_cliente">
+<xs:sequence>
+<xs:element name="documento" type="xs:int"/>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="apellido" type="xs:string" minOccurs="0"/>
+<xs:element name="sueldo" type="xs:int"/>
+<xs:element name="cliente_potencial" type="xs:string" minOccurs="0"/>
+<xs:element name="telefono" type="xs:int"/>
+<xs:element name="id_password" type="xs:int"/>
+<xs:element name="id_cuenta" type="xs:int"/>
+<xs:element name="id_historial" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="crear_clienteResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="pedir_credito">
+<xs:sequence>
+<xs:element name="cantidad" type="xs:int"/>
+<xs:element name="id" type="xs:int"/>
+<xs:element name="tipo_credito" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="pedir_creditoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="hello">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="helloResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="login">
+<xs:sequence>
+<xs:element name="cedula" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+<xs:element name="nivel" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="loginResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="consultar_informacion">
+<xs:sequence>
+<xs:element name="id_cuenta" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="consultar_informacionResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

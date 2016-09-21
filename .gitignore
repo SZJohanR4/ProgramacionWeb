@@ -3,3 +3,9 @@
 /ServerParcial/dist/
 /ServerParcial/build/
 /clienteParcial/build/
+/WebServiceParcial/build/
+/WebServiceParcial/dist/
+/WebServiceParcial/nbproject/private/
+/Cliente/nbproject/private/
+/ClienteWebService/nbproject/private/
+/ClienteWebService/build/
