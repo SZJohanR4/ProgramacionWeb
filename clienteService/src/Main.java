@@ -14,12 +14,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        
-        
-        
-        menu_principal mp=new menu_principal();
-        mp.setVisible(true);
+        // TODO code application logic here
     }
     
 }
